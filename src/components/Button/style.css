@@ -1,0 +1,32 @@
+.btn{
+    color: var(--card_in);
+    text-align: center;
+    
+    margin: 1rem 0rem;
+    font-size: 0.9rem;
+    font-weight: 550;
+    padding: 0.5rem ! important;
+    /* background-color: var(--card_bc); */
+    border: 1px solid var(--card_in);
+    border-radius: 0.55rem;
+    cursor: pointer;
+    display: flex ! important;
+    align-items: center;
+    justify-content: center;
+    height: auto ! important;
+}
+.btn:hover{
+    background-color:var(--card_in) ;
+    color:  #fff;
+    transition: all 0.4s;
+}
+.btn-green{
+    background-color: var(--card_in);
+    color: #fff;
+}
+
+.btn-green:hover{
+    background-color: #fff !important;
+    color: var(--card_in) !important;
+    transition:all 0.4s;
+}
