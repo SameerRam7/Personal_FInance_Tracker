@@ -1,17 +1,49 @@
-import React from 'react'
-import "./style.css"
+import React, { useEffect } from "react";
+import "./style.css";
+import { auth } from "../../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { signOut, getAuth } from "firebase/auth";
 
 const Header = () => {
+  const [user, loading] = useAuthState(auth);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) {
+      navigate("/dashboard");
+    }
+  }, [user, loading]);
+
   function logoutFunc() {
-    alert("Logout!")
+    try {
+      const auth = getAuth();
+      signOut(auth)
+        .then(() => {
+          // Sign-out successful.
+          toast.success("Logged Out Succesfully")
+          navigate("/")
+        })
+        .catch((error) => {
+          // An error happened.
+          toast.error(error.message);
+        });
+    } catch (e) {
+      toast.error(e.message);
+    }
   }
 
   return (
-    <div className='navbar'>
-      <p className='logo'>WalletWise.</p>
-      <p className='link' onClick={logoutFunc}>Logout</p>
+    <div className="navbar">
+      <p className="logo">WalletWise.</p>
+      {user && (
+        <p className="link" onClick={logoutFunc}>
+          Logout
+        </p>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

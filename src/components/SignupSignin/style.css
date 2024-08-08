@@ -15,3 +15,18 @@
     font-size: 1.2rem;
     text-align: center;
 }
+
+.p-login{
+    text-align: center;
+    margin: 0;
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+
+.click{
+    cursor: pointer;
+    color: var(--card_in);
+    text-decoration: underline;
+    font-style: italic;
+    font-weight: 700;
+}
