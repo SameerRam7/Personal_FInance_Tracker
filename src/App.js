@@ -9,15 +9,16 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
-    <>
+    <div class="background">
     <ToastContainer/>
-    <BrowserRouter>
+    <BrowserRouter >
       <Routes>
         <Route path="/" element={<Signup/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
       </Routes>
     </BrowserRouter>
-    </>
+    
+    </div>
   );
 }
 
